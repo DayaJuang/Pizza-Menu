@@ -1,10 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { pizzaData } from "./data";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export function Pizza() {
+  return (
+    <div>
+      <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
+      <h2>{pizzaData[0].name}</h2>
+      <p>{pizzaData[0].ingredients}</p>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
