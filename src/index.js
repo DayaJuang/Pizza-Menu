@@ -5,7 +5,26 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { pizzaData } from "./data";
 
-export function Pizza() {
+export function Header() {
+  return <h1>Pizza Reastaurant</h1>;
+}
+export function Menu() {
+  return (
+    <>
+      <h2>Our Menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </>
+  );
+}
+export function Footer() {
+  return (
+    <footer>{`${new Date().toLocaleTimeString()} We're currently open!`}</footer>
+  );
+}
+
+function Pizza() {
   return (
     <div>
       <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
