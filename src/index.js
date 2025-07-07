@@ -26,7 +26,7 @@ export function Footer() {
 
   return (
     <footer>
-      {new Date().toLocaleTimeString()}{" "}
+      {new Date().toLocaleTimeString()}
       {isOpen ? "We're currently open!" : "Sorry, We're currently closed"}
     </footer>
   );
