@@ -6,16 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import { pizzaData } from "./data";
 
 export function Header() {
-  return <h1>Pizza Reastaurant</h1>;
+  const style = { fontSize: "48px", textTransform: "uppercase" };
+  return (
+    <header className="header">
+      <h1 style={style}>Pizza Reastaurant</h1>
+    </header>
+  );
 }
 export function Menu() {
   return (
-    <>
+    <main className="menu">
       <h2>Our Menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
-    </>
+    </main>
   );
 }
 export function Footer() {
@@ -25,9 +30,9 @@ export function Footer() {
   const isOpen = hour >= openHour && hour < closeHour;
 
   return (
-    <footer>
+    <footer className="footer">
       {new Date().toLocaleTimeString()}
-      {isOpen ? "We're currently open!" : "Sorry, We're currently closed"}
+      {isOpen ? " We're currently open!" : " Sorry, We're currently closed"}
     </footer>
   );
 }
@@ -36,7 +41,7 @@ function Pizza() {
   return (
     <div>
       <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
-      <h2>{pizzaData[0].name}</h2>
+      <h3>{pizzaData[0].name}</h3>
       <p>{pizzaData[0].ingredients}</p>
     </div>
   );
