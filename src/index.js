@@ -17,12 +17,26 @@ export function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza pizzaData={pizzaData[0]} price={10} />
+      <Pizza pizzaData={pizzaData[1]} price={12} />
+      <Pizza pizzaData={pizzaData[2]} price={8} />
     </main>
   );
 }
+
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.pizzaData.photoName} alt={props.pizzaData.name} />
+      <div>
+        <h3>{props.pizzaData.name}</h3>
+        <p>{props.pizzaData.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
@@ -34,16 +48,6 @@ export function Footer() {
       {new Date().toLocaleTimeString()}
       {isOpen ? " We're currently open!" : " Sorry, We're currently closed"}
     </footer>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
-      <h3>{pizzaData[0].name}</h3>
-      <p>{pizzaData[0].ingredients}</p>
-    </div>
   );
 }
 
