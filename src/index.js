@@ -17,23 +17,25 @@ export function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza pizzaData={pizzaData[0]} price={10} />
-      <Pizza pizzaData={pizzaData[1]} price={12} />
-      <Pizza pizzaData={pizzaData[2]} price={8} />
+      <ul className="pizzas">
+        {pizzaData.map((pizza, i) => (
+          <Pizza key={i} pizzaData={pizza} />
+        ))}
+      </ul>
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.pizzaData.photoName} alt={props.pizzaData.name} />
       <div>
         <h3>{props.pizzaData.name}</h3>
         <p>{props.pizzaData.ingredients}</p>
-        <span>{props.price}</span>
+        <span>{props.pizzaData.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
