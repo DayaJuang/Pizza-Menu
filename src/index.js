@@ -14,14 +14,17 @@ export function Header() {
 }
 
 export function Menu() {
+  const pizzas = pizzaData;
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza, i) => (
-          <Pizza key={i} pizzaData={pizza} />
-        ))}
-      </ul>
+      {pizzas.length > 0 && (
+        <ul className="pizzas">
+          {pizzas.map((pizza, i) => (
+            <Pizza key={i} pizzaObj={pizza} />
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
@@ -29,11 +32,11 @@ export function Menu() {
 function Pizza(props) {
   return (
     <li className="pizza">
-      <img src={props.pizzaData.photoName} alt={props.pizzaData.name} />
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.pizzaData.name}</h3>
-        <p>{props.pizzaData.ingredients}</p>
-        <span>{props.pizzaData.price}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
       </div>
     </li>
   );
@@ -47,8 +50,12 @@ export function Footer() {
 
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}
-      {isOpen ? " We're currently open!" : " Sorry, We're currently closed"}
+      {isOpen && (
+        <div className="order">
+          <p>We are currently open !</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
     </footer>
   );
 }
